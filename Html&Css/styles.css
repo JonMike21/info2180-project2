@@ -1,3 +1,4 @@
+/*~~WEBSITE TEMPLATE~~*/
 /* #region */
 /*This has the basic things that most webpages contain*/
 
@@ -6,7 +7,7 @@ body{
 }
 #everythingbutheader{
     display: grid;
-    grid-template-columns: 150px auto;
+    grid-template-columns: 160px auto;
     column-gap: 2px;
     
     /*background-color: rgba(144, 109, 180, 0.256);*/
@@ -14,59 +15,112 @@ body{
 
 
 .header{
-    
     background-color: rgb(48, 46, 63);
     color: white;
     height:45px;
     margin: 0%;
-   
 }
-
-.sidebar-text{
-    grid-column: 1;
+.sidebar-container{
+    display: grid;
+    grid-template-columns: 20px 140px;
+    grid-template-rows: 200px;
+    column-gap: 15px;
+    /*background-color: aquamarine;*/
 }
 
 .sidebar{
+    align-items: center;
+    justify-content: left;
+    max-width: 100%;
     box-shadow: 5px 10px #888888;    
+    grid-column: 1;
+}
 
+.sidebar-text{
+    grid-column: 2;
+    grid-row: 1;
+}
+
+
+.sidebar-text a:link{
+    color: #4299E1;
+    text-decoration: none;
+}
+
+.sidebar-text a:hover {
+    text-decoration: underline;
+    color: #3078b3
+  }
+  .sidebar-text a:visited {
+    color: #4299E1;
+  }
+  
+  .sidebar-text a:active {
+    text-decoration: underline;
+}
+.sidebar ul{
+    /*text-align: left;*/
+    list-style-type: none;
+
+}
+.sidebar-images {
+
+    grid-column: 1;
+    grid-row: 1;
+}
+.sidebar-images img{
+    height: 20px;
+    width: 20px;
 }
 .notSidebar{
     grid-column: 2;
-    color: blueviolet;
-    background-color: rgb(236, 234, 234);
-    
-
+    /*color: blueviolet;*/
+    min-height: 1000px;
+    background-color: rgba(237, 237, 237, 0.457);
 }
 
 .boxx{
     display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 30px;
+    padding-right: 30px;
 }
-  /* #endregion */
+h1{
+    padding-left: 30px;
+}
+.container{
+    /*background-color: lightgoldenrodyellow;*/
+    background-color: rgb(255, 255, 255);
+    min-width: 98%;
+    border-radius: 7px;
+    padding: 10px;
+}
+/* #endregion */
 
+/*~~LOGIN SCREEN~~*/
+/* #region */
 #loginboxsinfo{
     display: grid;
     min-height: 100%;
     min-width: 100%;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 0.483fr 0.483fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     row-gap: 20px;
     column-gap:20px;
     padding:20px;
     /*background-color: rgb(19, 243, 34);*/   /*Jus used to check the overall space of the container */
 }
 
-/*.container{
- color: brown;
-}*/
-
 label[for=firstName],label[for=lastName],label[for=email],label[for=password],label[for=role]{
-    color: blue;
+    color: rgb(0, 0, 0);
 }
-
 
 #firstName,#lastName,#email,#password,#role{
     margin-top: 20px;
-    padding-right: 250px;
+    padding-bottom: 10px;
+    padding-right: 260px;
+    /*padding-right: 250px;*/
 }
 
 #firstName,label[for=firstName]{
@@ -74,7 +128,6 @@ label[for=firstName],label[for=lastName],label[for=email],label[for=password],la
     grid-row: 1;
     grid-column: 1;
 }
-
 
 
 #lastName,label[for=lastName]{
@@ -98,13 +151,28 @@ label[for=firstName],label[for=lastName],label[for=email],label[for=password],la
 }
 
 #savebtn{
+    grid-row: 4;
+    grid-column: 1,2;
+    
     display:flex;
-    background-color: rgb(166, 201, 189);
+    /*background-color: rgb(166, 201, 189);
     padding-left:20px;
-    padding-right: 20px;
+    padding-right: 20px;*/
+    background-color: rgba(237, 237, 237, 0.457);
     align-items: center;
-    justify-content: left;
-    min-width: 100%;
+    justify-content: right;
+    min-width:200%;
     height: 30px;
+    padding: 12px;
+    padding-top: 1;
+    padding-bottom: 1;
 }
 
+#save{
+    background-color: rgba(64, 64, 220, 0.811);
+    color: white;
+    padding: 10px;
+    border-radius: 7px;
+    border: none;
+}
+/* #endregion */
