@@ -10,9 +10,9 @@ CREATE TABLE `users` (
     `password` VARCHAR(45) NOT NULL,
     `email` VARCHAR(45) NOT NULL,
     `role` VARCHAR(45) NOT NULL, 
-    `created_at` DATETIME NOT NULL,
+    `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(`id`)
-);
+)ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS `contacts`;
 CREATE TABLE `contacts` (
@@ -26,10 +26,10 @@ CREATE TABLE `contacts` (
     `type` VARCHAR(45) NOT NULL,
     `assigned_to` INTEGER NOT NULL,
     `created_by` INTEGER NOT NULL, 
-    `created_at` DATETIME NOT NULL,
-    `updated_at` DATETIME NOT NULL,
+    `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(`id`)
-);
+)ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS `notes`;
 CREATE TABLE `notes` (
@@ -37,13 +37,13 @@ CREATE TABLE `notes` (
     `contact_id` INTEGER NOT NULL,
     `comment` TEXT(45) NOT NULL,
     `created_by` INTEGER NOT NULL,
-    `created_at` DATETIME NOT NULL,
+    `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(`id`)
-);
+)ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `users` VALUES 
-(1,'John','Brown','pass123','admin@project.com','Admin',''),
-(2,'Jordan','Dwyer','pass1234','admin@project.com','Admin',''),
-(3,'Lenroy','Hinds','pass1423','admin@project.com','Admin',''),
-(4,'Jim','Williams','pass1235','tester@project.com','Tester',''),
-(5,'Tin','Can','pass1623','tester@project.com','Tester','');
+(NULL,'John','Brown','pass123','admin@project.com','Admin',NULL),
+(NULL,'Jordan','Dwyer','pass1234','admin@project.com','Admin',NULL),
+(NULL,'Lenroy','Hinds','pass1423','admin@project.com','Admin',NULL),
+(NULL,'Jim','Williams','pass1235','tester@project.com','Tester',NULL),
+(NULL,'Tin','Can','pass1623','tester@project.com','Tester',NULL);
