@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS dolphin_crm;
 CREATE DATABASE dolphin_crm;
 USE dolphin_crm;
 
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS Users;
 CREATE TABLE Users (
     id INTEGER IDENTITY(0,1) PRIMARY KEY, 
     firstname VARCHAR NOT NULL,
