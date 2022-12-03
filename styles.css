@@ -150,7 +150,7 @@ label[for=firstName],label[for=lastName],label[for=email],label[for=password],la
     grid-column: 1;
 }
 
-#savebtn{
+#btnArea{
     grid-row: 4;
     grid-column: 1,2;
     
@@ -159,8 +159,8 @@ label[for=firstName],label[for=lastName],label[for=email],label[for=password],la
     padding-left:20px;
     padding-right: 20px;*/
     background-color: rgba(237, 237, 237, 0.457);
-    align-items: center;
-    justify-content: right;
+   /* align-items: center;
+   justify-content:center;*/
     min-width:200%;
     height: 30px;
     padding: 12px;
@@ -175,4 +175,9 @@ label[for=firstName],label[for=lastName],label[for=email],label[for=password],la
     border-radius: 7px;
     border: none;
 }
+#saveBttndiv{
+    margin-left: auto;
+}
+
+
 /* #endregion */
