@@ -13,7 +13,7 @@ $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $p
 if ($_SERVER['REQUEST_METHOD'] === 'GET') :
     $stmt = $conn->query("SELECT * FROM contacts");
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);?> 
-    <table>
+    <table style="width:100%" CELLSPACING=0>
       <thead>
         <tr>
             <th>Name</th>
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') :
       <tbody>
         <?php foreach($results as $tdv): ?>
         <tr>
-          <td><?=$tdv['title'].$tdv['firstname'].$tdv['lastname'];?></td>
+          <td><?=$tdv['title']." ".$tdv['firstname']." ".$tdv['lastname'];?></td>
           <td><?=$tdv['email'];?></td>
           <td><?=$tdv['company'];?></td>
           <td><?=$tdv['type'];?></td>

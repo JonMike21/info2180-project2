@@ -1,7 +1,7 @@
 window.onload=function(){
     var httpRequest;
     var All= document.querySelector("#All");
-    var lookupc= document.querySelector("#lookupc");
+    var Sales= document.querySelector("#Sales");
     
     All.addEventListener('click', function(element){
         element.preventDefault();
@@ -11,7 +11,11 @@ window.onload=function(){
         httpRequest.open('GET',url);
         httpRequest.send();
     });
-
+    // httpRequest = new XMLHttpRequest();
+    // var url = "Dashboard.php";
+    // httpRequest.onreadystatechange=load;
+    // httpRequest.open('GET',url);
+    // httpRequest.send();
    
 
 

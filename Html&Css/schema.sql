@@ -50,6 +50,6 @@ INSERT INTO `users` VALUES
 (NULL,'Tin','Can','pass1623','tester@project.com','Tester',CURRENT_TIMESTAMP);
 
 INSERT INTO `contacts` VALUES 
-(NULL,'Manager','Johnny','Brown','Rus@project.com','8994231','CompanyRUs','Sales Lead',2,1,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
-(NULL,'Manager','Jack','Daniels','Rus@project.com','8994231','CompanyRUs','Sales Lead',2,1,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
-(NULL,'Asst Manager','Janai','Williams','Rus@project.com','8994231','CompanyRUs','Support',2,1,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
+(NULL,'Mr.','Johnny','Brown','Rus@project.com','8994231','CompanyRUs','Sales Lead',2,1,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
+(NULL,'Mr.','Jack','Daniels','Rus@project.com','8994231','CompanyRUs','Sales Lead',2,1,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
+(NULL,'Mr.','Janai','Williams','Rus@project.com','8994231','CompanyRUs','Support',2,1,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
