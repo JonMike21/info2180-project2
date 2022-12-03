@@ -168,7 +168,7 @@ label[for=firstName],label[for=lastName],label[for=email],label[for=password],la
     padding-bottom: 1;
 }
 
-#save{
+#saveBttn{
     background-color: rgba(64, 64, 220, 0.811);
     color: white;
     padding: 10px;
