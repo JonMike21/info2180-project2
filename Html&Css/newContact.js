@@ -24,10 +24,10 @@ $(document).ready(function() {
             type: type,
             assign: assigned
         }
-        }).done(function(response) {
-        var resp = response;
 
-        $('#result').html(resp);
+        }).done(function(response) {
+            var resp = response;
+            $('#result').html(resp);
         
         }).fail(function() {
             alert('There was a problem with the request.');
