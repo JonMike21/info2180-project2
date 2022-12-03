@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>UserCreation</title>
+        <link rel="stylesheet" href="Dashboard.css">
+    </head>
+    <body>
+        <div>
+            <h4 class="header">Dolphin CRM</h4>
+        </div>
+
+        <div id="everythingbutheader">
+            <section class="sidebar">
+                <div class="sidebar-container">
+                    <div class="sidebar-text">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">New Contact</a></li>
+                            <li><a href="#">Users</a></li>
+                            <hr>
+                            <li><a href="#">Logout</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-images">
+                        <ul>
+                        <li><img src="house.png" alt=""></li>
+                        <img src="house.png" alt="">
+                        <img src="house.png" alt="">
+                        <img src="house.png" alt="">
+                        </ul>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="notSidebar">
+                <div class="top">
+                    <h1>Dashboard</h1>
+                    <button type="button">	+&nbsp;&nbsp;&nbsp;Add Contact</button>
+                </div>  
+
+                <div class="boxx">
+                    
+                    <div class="container">
+                    <!--You can add code inside this div--> 
+                    <ul class="nav">
+                        <li><h5><i class="fa fa-filter"></i>Filter By:</h5></li>
+                        <li><button type="button">All</button></li>
+                        <li><button type="button">Sales Leads</button></li>
+                        <li><button type="button">Support</button></li>
+                        <li><button type="button">Assigned to me</button></li>
+                    </ul>
+
+                    <table id="myTable" style="width:100%" CELLSPACING=0>
+                        <tr class="tableheader">
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Company</th>
+                            <th>Type</th>
+                            <th></th>
+                        </tr>
+                    </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </body>
+</html>
