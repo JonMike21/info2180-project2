@@ -33,11 +33,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $SQL="INSERT INTO `contacts` (title, firstname, lastname, email, telephone, company, type, assigned_to) 
     VALUES ('$title', '$firstName', '$lastName', '$email', '$tel', '$company', '$type', '$assign')";
 
-    // echo "<h3>" . $SQL . "</h3>";
+   
 
     
     $stmt = $conn->query($SQL);
 
+    
 
 } 
 

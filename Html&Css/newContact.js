@@ -22,7 +22,10 @@ $(document).ready(function() {
             tel: telephone,
             company: company,
             type: type,
-            assign: assigned
+            assign: assigned,
+            async:true,
+            dataType : 'jsonp',   //you may use jsonp for cross origin request
+            crossDomain:true
         }
 
         }).done(function(response) {
