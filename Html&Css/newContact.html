@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styless.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="newContact.js"></script>
+    <title>Create New Contact</title>
+</head>
+
+
+<!-- Body -->
+
+<body>
+    <div class= "header">
+        <h1>&#128044; Dolphin CRM</h1> 
+    </div>
+    
+        <div class = "sidebar">
+        <div>
+            <i class="fa fa-home"></i>
+            <a href="">Home</a>
+        </div>
+
+        <div>
+            <i class="fa fa-user-plus"></i>
+            <a href="">New Contact</a>
+        </div>
+
+        <div>
+            <i class="far fa-user-circle"></i>
+            <a href="">Users</a>
+        </div>
+
+        <div class="line">
+            <hr>
+            </div>
+
+        <div>
+            <i class="fa fa-sign-out"></i>
+            <a href="">Logout</a>
+        </div>       
+
+    </div>
+    <div class= "notSidebar">
+    <div class="boxx">
+            <div class="container">
+                        <div class="row">
+                            <div>
+                                <label class="label" for="title">Title</label>
+                                <select id="title">
+                                    <option value="Mr">Mr.</option>
+                                    <option value="Mrs">Mrs.</option>
+                                    <option value="Ms">Ms.</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="label" for="name">First Name</label>
+                                    <input type="text" class="form-control" name="name" id="fname" placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="label" for="name">Last Name</label>
+                                    <input type="text" class="form-control" name="name" id="lname" placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="label" for="email">Email Address</label>
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="label" for="tel">Telephone</label>
+                                    <input type="tel" class="form-control" name="telephone" id="tel" placeholder="(876)-555-9999">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="label" for="company">Company</label>
+                                    <input type="text" class="form-control" name="company" id="company">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="label" for="type">Type</label>
+                                <select id="type">
+                                    <option value="Sales Lead">Sales Lead</option>
+                                    <option value="Support">Support</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="label" for="assigned">Assigned To</label>
+                                <select id="assign">
+                                    <option value="Andy Bernard">Andy Bernard</option>
+                                    <option value="Dave Buckingham">Dave Buckingham</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-save">
+                                    <input type="submit" value="save" id="btn-save">
+                                    <div class="saving"></div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div id="result">
+
+            </div>
+        
+    </body>
+</html>
