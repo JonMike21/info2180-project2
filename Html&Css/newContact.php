@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $company = filter_input(INPUT_POST, 'company', FILTER_SANITIZE_SPECIAL_CHARS);
     $title = $_POST['title'];
     $assign = $_POST['assign'];
-    $type = $_post['type'];
+    $type = $_POST['type'];
     $tel = preg_replace('/[^0-9]/', '', $_POST['tel']);
 
   
@@ -30,8 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
 
-    $SQL="INSERT INTO `contacts` (title, firstname, lastname, email, telephone, company, 'type', assigned_to) 
-    VALUES ('$title', '$firstname', '$lastname', '$email', '$tel', '$company', '$type', '$assign')";
+    $SQL="INSERT INTO `contacts` (title, firstname, lastname, email, telephone, company, type, assigned_to) 
+    VALUES ('$title', '$firstName', '$lastName', '$email', '$tel', '$company', '$type', '$assign')";
 
     // echo "<h3>" . $SQL . "</h3>";
 
