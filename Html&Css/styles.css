@@ -111,6 +111,26 @@ h1{
     padding:20px;
     /*background-color: rgb(19, 243, 34);*/   /*Jus used to check the overall space of the container */
 }
+#userloginboxsinfo{
+    display: grid;
+    justify-content:center;
+    grid-row: 2;
+    padding: 5%;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin: 5%;
+    row-gap: 20px;
+    /*background-color: rgb(19, 243, 34);*/   /*Jus used to check the overall space of the container */
+}
+.logincontainer{
+    display: grid;
+    justify-content:center;
+    padding: 8%;
+    margin: 10%;
+    row-gap: 10px;
+    width: auto;
+
+}
 
 label[for=firstName],label[for=lastName],label[for=email],label[for=password],label[for=role]{
     color: rgb(0, 0, 0);
@@ -168,6 +188,10 @@ label[for=firstName],label[for=lastName],label[for=email],label[for=password],la
     padding-bottom: 1;
 }
 
+#loginbtn{
+    width:auto;
+    
+}
 #save{
     background-color: rgba(64, 64, 220, 0.811);
     color: white;
