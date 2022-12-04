@@ -11,8 +11,7 @@ $(document).ready(function() {
         var company = $('#company').val();
         var type = $('#type').val();
         var assigned = $('#assign').val();
-
-
+    
         if (title && (firstName || firstName === " ") && (lastName || lastName === " ") && (email || email === " ") && telephone && (company || company === " ") && type && assigned){
             $.ajax('newContact.php', {
                 method: 'POST',
@@ -24,10 +23,7 @@ $(document).ready(function() {
                     tel: telephone,
                     company: company,
                     type: type,
-                    assign: assigned,
-                    async:true,
-                    dataType : 'jsonp',
-                    crossDomain:true
+                    assign: assigned
                 }
         
                 }).done(function(response) {
@@ -40,7 +36,33 @@ $(document).ready(function() {
         }else{
             alert('Empty Field(s) Detected.');
         }
-       
     
     })
-    });
+});
+
+window.onload=function(){
+    var httpRequest;
+    
+    httpRequest = new XMLHttpRequest();
+    var url = "newContact.php";
+    httpRequest.onreadystatechange=load;
+    httpRequest.open('GET',url);
+    httpRequest.send();
+   
+
+    function load(){
+        if (httpRequest.readyState === XMLHttpRequest.DONE) {
+            if (httpRequest.status === 200) {
+            var location = httpRequest.responseText;
+            var result = document.querySelector('#dropDownValue');
+            result.innerHTML = location;
+
+        
+        
+        } else {
+                alert("Error with the GET request.");
+            }
+        }
+    }
+};
+
