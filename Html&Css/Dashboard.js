@@ -4,6 +4,13 @@ window.onload=function(){
     var Sales= document.querySelector("#Sales");
     var Support= document.querySelector("#Support");
     var Assigned= document.querySelector("#Assigned");
+
+    httpRequest = new XMLHttpRequest();
+    var url = "Dashboard.php?q=All";
+    httpRequest.onreadystatechange=load;
+    httpRequest.open('GET',url);
+    httpRequest.send();
+
     
     All.addEventListener('click', function(element){
         element.preventDefault();
@@ -13,12 +20,7 @@ window.onload=function(){
         httpRequest.open('GET',url);
         httpRequest.send();
     });
-    // httpRequest = new XMLHttpRequest();
-    // var url = "Dashboard.php";
-    // httpRequest.onreadystatechange=load;
-    // httpRequest.open('GET',url);
-    // httpRequest.send();
-
+    
     Sales.addEventListener('click', function(element){
         element.preventDefault();
         httpRequest = new XMLHttpRequest();
@@ -28,28 +30,20 @@ window.onload=function(){
         httpRequest.send();
     });
     
-    Sales.addEventListener('click', function(element){
+    Support.addEventListener('click', function(element){
         element.preventDefault();
         httpRequest = new XMLHttpRequest();
-        var url = "Dashboard.php";
+        var url = "Dashboard.php?q=Support";
         httpRequest.onreadystatechange=load;
         httpRequest.open('GET',url);
         httpRequest.send();
     });
 
-    Support.addEventListener('click', function(element){
-        element.preventDefault();
-        httpRequest = new XMLHttpRequest();
-        var url = "Dashboard.php";
-        httpRequest.onreadystatechange=load;
-        httpRequest.open('GET',url);
-        httpRequest.send();
-    });
 
     Assigned.addEventListener('click', function(element){
         element.preventDefault();
         httpRequest = new XMLHttpRequest();
-        var url = "Dashboard.php";
+        var url = "Dashboard.php?q=Assigned";
         httpRequest.onreadystatechange=load;
         httpRequest.open('GET',url);
         httpRequest.send();
@@ -69,4 +63,3 @@ window.onload=function(){
         }
     }
 };
-

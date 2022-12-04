@@ -12,14 +12,17 @@ $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $p
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET'):
   $q = $_REQUEST['q'];
-  echo $q;
 
-  if ($q == "Sales"){
-    $stmt = $conn->query("SELECT * FROM contacts WHERE type = 'support'");
-  }else{
-    $stmt = $conn->query("SELECT * FROM contacts");
-
+  if ($q == "All"){
+    $stmt = $conn->query("SELECT * FROM contacts ");
   }
+  if ($q == "Sales"){
+    $stmt = $conn->query("SELECT * FROM contacts WHERE type = 'Sales Lead'");
+  }
+  if ($q == "Support"){
+    $stmt = $conn->query("SELECT * FROM contacts WHERE type = 'Support'");
+  }
+
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);?> 
     <table style="width:100%" CELLSPACING=0>
       <thead>

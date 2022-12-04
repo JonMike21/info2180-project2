@@ -190,7 +190,7 @@ label[for=firstName],label[for=lastName],label[for=email],label[for=password],la
         
     }
     .top > button{
-        color: white;
+        
         text-decoration: none;
         background-color: #5047de;
         border: none;
@@ -198,6 +198,11 @@ label[for=firstName],label[for=lastName],label[for=email],label[for=password],la
         font-size: 18px;
        
         height: 40px;
+    }
+
+    .top > button >a{
+        color: white;
+        text-decoration: none;
     }
 
     .top> h1{
@@ -251,27 +256,40 @@ label[for=firstName],label[for=lastName],label[for=email],label[for=password],la
         border-radius: 5%;
     } */
 
-    table{
-        width: 100%;
-        border-spacing: 0;
-        border-collapse: collapse;
+    table {
+        border-collapse:separate;
+        border:solid #f6f6f6 1px;
+        border-radius:6px;
     }
-    
+
     th{
         padding-left: 10px;
         text-align:left;
         background-color: #f3f4f6; 
       
     }
-
+    td{
+        border-top:solid #f6f6f6 1px;
+        border-bottom:solid #f6f6f6 1px;
+    }
+    td >button{
+        text-decoration: none;
+        color: #5047de;
+        background-color: white;
+        border: none;
+        font-size: 14px;
+    }
+    
     th:first-of-type {
         border-top-left-radius: 10px;
+        
     }
     th:last-of-type {
         border-top-right-radius: 10px;
     }
     tr:last-of-type td:first-of-type {
         border-bottom-left-radius: 10px;
+        
     }
     tr:last-of-type td:last-of-type {
         border-bottom-right-radius: 10px;
