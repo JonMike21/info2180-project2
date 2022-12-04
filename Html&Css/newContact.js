@@ -12,26 +12,30 @@ $(document).ready(function() {
         var type = $('#type').val();
         var assigned = $('#assign').val();
     
-        $.ajax('newContact.php', {
-        method: 'POST',
-        data: {
-            title: title,
-            fname: firstName,
-            lname: lastName,
-            email: email,
-            tel: telephone,
-            company: company,
-            type: type,
-            assign: assigned
-        }
-
-        }).done(function(response) {
-            var resp = response;
-            $('#result').html(resp);
+        if (title && (firstName || firstName === " ") && (lastName || lastName === " ") && (email || email === " ") && telephone && (company || company === " ") && type && assigned){
+            $.ajax('newContact.php', {
+                method: 'POST',
+                data: {
+                    title: title,
+                    fname: firstName,
+                    lname: lastName,
+                    email: email,
+                    tel: telephone,
+                    company: company,
+                    type: type,
+                    assign: assigned
+                }
         
-        }).fail(function() {
-            alert('There was a problem with the request.');
-        });
+                }).done(function(response) {
+                    var resp = response;
+                    $('#result').html(resp);
+                
+                }).fail(function() {
+                    alert('There was a problem with the request.');
+                });
+        }else{
+            alert('Empty Field(s) Detected.');
+        }
     
     })
 });
@@ -56,7 +60,7 @@ window.onload=function(){
         
         
         } else {
-                alert("Error with the request.");
+                alert("Error with the GET request.");
             }
         }
     }

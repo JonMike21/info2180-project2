@@ -37,26 +37,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $type = $_POST['type'];
     $assign = $_POST['assign'];
     $tel = preg_replace('/[^0-9]/', '', $_POST['tel']);
-
+    $telLength = strlen((string)$tel);
   
     // Check if email is valid
     if (!$email) {
-        echo 'That email is not valid!<br/>';
-    }
-
-    foreach($results as $option){
-        // echo '<option>' . $option['firstname']." ".$option['lastname'] . '</option>';
-        $check = $option['firstname']." ".$option['lastname'];
-        if ($check == $assign){
-            $identity = $option['id'];
-            break;
-        }
-    }
-
-    $SQL="INSERT INTO `contacts` (title, firstname, lastname, email, telephone, company, type, assigned_to) 
-    VALUES ('$title', '$firstName', '$lastName', '$email', '$tel', '$company', '$type', '$identity')";
+        echo '<script language="javascript">';
+        echo 'alert("That email is not valid!")';
+        echo '</script>';
     
-    $stmt = $conn->query($SQL);
+    }elseif(!($telLength == 10)){
+        echo '<script language="javascript">';
+        echo 'alert("Incorrect Telephone number length!")';
+        echo '</script>';
+    }else{
+        foreach($results as $option){
+            $check = $option['firstname']." ".$option['lastname'];
+            if ($check == $assign){
+                $identity = $option['id'];
+                break;
+            }
+        }
+    
+        $current = date('Y-m-d H:i:s');
+    
+        echo $current;
+    
+        $SQL="INSERT INTO `contacts` (title, firstname, lastname, email, telephone, company, type, created_by, assigned_to, created_at, updated_at) 
+        VALUES ('$title', '$firstName', '$lastName', '$email', '$tel', '$company', '$type', '$identity', '$identity', '$current', '$current')";
+        
+        $stmt = $conn->query($SQL);
+    }
+
 
 } 
 
