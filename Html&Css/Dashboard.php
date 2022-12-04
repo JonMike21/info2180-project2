@@ -38,6 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'):
           <td><?=$tdv['email'];?></td>
           <td><?=$tdv['company'];?></td>
           <td><?=$tdv['type'];?></td>
+          <td><button type="button">View</button></td>
         </tr>
         <?php endforeach; ?>
       </tbody>
@@ -45,28 +46,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'):
   <?php endif; ?> 
   
   
-  <?php 
-    if(isset($_GET["city"])):
-      $city= $_GET["city"];
-      $stmt=$conn->query("SELECT c.name, c.district, c.population FROM cities c join countries cs on c.country_code = cs.code WHERE cs.name LIKE '%$city%' ");
-      $results = $stmt->fetchAll(PDO::FETCH_ASSOC);?>
-  
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>District</th>
-            <th>Population</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php foreach($results as $tdv): ?>
-          <tr>
-            <td><?=$tdv['name'];?></td>
-            <td><?=$tdv['district'];?></td>
-            <td><?=$tdv['population'];?></td>
-          </tr>
-          <?php endforeach; ?>
-        </tbody>
-      </table>
-  <?php endif; ?> 
