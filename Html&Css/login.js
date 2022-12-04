@@ -1,6 +1,13 @@
+$(document).ready(function() {
+
+    var loginBttn= $('#login');
+    $loginMsg = "Successfully Login...";
+    $errorMsg = "Email or Password missing";
 
 $(document).ready(function(){
     var submit = $('#login');
+
+
 
     submit.on('click',function(element) {
     
