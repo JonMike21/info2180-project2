@@ -14,9 +14,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'):
   $q = $_REQUEST['q'];
   echo $q;
 
-  if ($q == "Sales"){
-    $stmt = $conn->query("SELECT * FROM contacts WHERE type = 'support'");
-  }else{
+  if ($q == 'Sales'){
+    $stmt = $conn->query("SELECT * FROM contacts WHERE type = 'Sales Lead'");
+  }
+
+  if ($q == 'Support'){
+    $stmt = $conn->query("SELECT * FROM contacts WHERE type = 'Support'");
+  }
+
+  if ($q == 'Assigned'){
+    $stmt = $conn->query("SELECT * FROM contacts WHERE assigned_to = 2");
+  }
+  
+  if ($q == 'All'){
     $stmt = $conn->query("SELECT * FROM contacts");
 
   }

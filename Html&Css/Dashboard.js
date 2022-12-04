@@ -27,20 +27,12 @@ window.onload=function(){
         httpRequest.open('GET',url);
         httpRequest.send();
     });
-    
-    Sales.addEventListener('click', function(element){
-        element.preventDefault();
-        httpRequest = new XMLHttpRequest();
-        var url = "Dashboard.php";
-        httpRequest.onreadystatechange=load;
-        httpRequest.open('GET',url);
-        httpRequest.send();
-    });
+
 
     Support.addEventListener('click', function(element){
         element.preventDefault();
         httpRequest = new XMLHttpRequest();
-        var url = "Dashboard.php";
+        var url = "Dashboard.php?q=Support";
         httpRequest.onreadystatechange=load;
         httpRequest.open('GET',url);
         httpRequest.send();
@@ -49,7 +41,7 @@ window.onload=function(){
     Assigned.addEventListener('click', function(element){
         element.preventDefault();
         httpRequest = new XMLHttpRequest();
-        var url = "Dashboard.php";
+        var url = "Dashboard.php?q=Assigned";
         httpRequest.onreadystatechange=load;
         httpRequest.open('GET',url);
         httpRequest.send();
