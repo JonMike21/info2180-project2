@@ -40,7 +40,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'):
           <td><?=$tdv['title']." ".$tdv['firstname']." ".$tdv['lastname'];?></td>
           <td><?=$tdv['email'];?></td>
           <td><?=$tdv['company'];?></td>
-          <td><?=$tdv['type'];?></td>
+ 
+          <?php
+            
+
+            if ($tdv['type'] == "Sales Lead") {
+            echo '<td class="SL">Sales Lead</td>';
+            }
+            else{
+                echo '<td class="Sup">Support</td>';
+            }
+        ?>
+          
+        
+          
           <td><button type="button">View</button></td>
         </tr>
         <?php endforeach; ?>
