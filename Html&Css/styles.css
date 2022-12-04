@@ -155,7 +155,7 @@ footer{
     margin: auto;
     row-gap: 20px;
 }
-.logincontainer{
+.logincontainer, .logincontainer h2{
     display: grid;
     justify-content:center;
     row-gap: 20px;
@@ -229,6 +229,7 @@ label[for=firstName],label[for=lastName],label[for=email],label[for=password],la
 .loginbtn{
     display: grid;
     grid-template-columns: 1fr;
+    padding-top: 10px;
     color: white;
 }
 

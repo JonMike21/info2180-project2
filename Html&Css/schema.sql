@@ -61,6 +61,7 @@ INSERT INTO `contacts` VALUES
 (NULL,'Mr.','Jack','Daniels','Rus@project.com','8994231','CompanyRUs','Sales Lead',2,1,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
 (NULL,'Mr.','Janai','Williams','Rus@project.com','8994231','CompanyRUs','Support',2,1,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
 
+INSERT INTO `notes` VALUES
 (NULL,1,'Johnny made this note',1,CURRENT_TIMESTAMP),
 (NULL,2,'Jack made this noe',2,CURRENT_TIMESTAMP),
 (NULL,1,'Support is a bad role',1,CURRENT_TIMESTAMP);
