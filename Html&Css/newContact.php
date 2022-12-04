@@ -2,6 +2,19 @@
 
 header('Access-Control-Allow-Origin: *');
 
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+
+
+    $host = 'localhost';
+    $username = 'project2_user';
+    $password = 'password123';
+    $dbname = 'dolphin_crm';
+
+    $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+
+    
+
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -25,14 +38,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   
     // Check if email is valid
-    if (!$email) {
+    if ((!$email)) {
         echo 'That email is not valid!<br/>';
+    }elseif(($tel !== 10)){
+        echo 'Telephone number is of incorrect length<br/>';
+    }else{
+        $SQL="INSERT INTO `contacts` (title, firstname, lastname, email, telephone, company, type, assigned_to) 
+        VALUES ('$title', '$firstName', '$lastName', '$email', '$tel', '$company', '$type', '$assign')";
+
     }
 
 
-    $SQL="INSERT INTO `contacts` (title, firstname, lastname, email, telephone, company, type, assigned_to) 
-    VALUES ('$title', '$firstName', '$lastName', '$email', '$tel', '$company', '$type', '$assign')";
-
+    
    
 
     
