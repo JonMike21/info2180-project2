@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'):
           
         
           
-          <td><button type="button">View</button></td>
+          <td><button type="button"><a href="note.php">View</a></button></td>
         </tr>
         <?php endforeach; ?>
       </tbody>

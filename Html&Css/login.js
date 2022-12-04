@@ -1,27 +1,34 @@
 
-$('input[type=submit]').on('click',function(element) {
-    
-    element.preventDefault();
-    var loginEmail = $('input[name=loginEmail]').val();
-    var loginPassword = $('input[name=loginPassword]').val();
-    alert(loginEmail);
-    
-    $.ajax({
-        type:'POST',
-        URL: 'login.php',
-        data: {
-            email: loginEmail,
-            password: loginPassword,
+$(document).ready(function(){
+    var submit = $('#login');
 
-        }})
-        .success(function(data) {
-            /*console.log(data);*/
-            var resp = data;
-            $('#result').html(resp);
-        })
-        .fail(function() {
-            console.log('There was a problem with the request.')
-            alert('There was a problem with the request.');
-        });
+    submit.on('click',function(element) {
     
-    });
+        element.preventDefault();
+        var loginEmail = $('loginEmail').val();
+        var loginPassword = $('loginPassword').val();
+        alert(loginEmail);
+        
+        $.ajax('login.php',{
+            method:'POST',
+            data: {
+                loginEmail: loginEmail,
+                loginPassword: loginPassword,
+    
+            }})
+            .done(function(response) {
+                console.log(response);
+                var resp = response;
+                $('#result').html(resp);
+            })
+            .fail(function() {
+                console.log('There was a problem with the request.')
+                alert('There was a problem with the request.');
+            });
+        
+        });
+})
+
+
+
+    
