@@ -274,10 +274,28 @@ label[for=firstName],label[for=lastName],label[for=email],label[for=password],la
     }
     td >button{
         text-decoration: none;
+        text-align: center;
         color: #5047de;
         background-color: white;
         border: none;
         font-size: 14px;
+    
+    }
+
+    td.SL {
+        color: black;
+        background-color:#f9d35d;
+        text-align: center;
+        border-radius: 10px;
+        padding: -10px;
+
+        }
+    td.Sup {
+        color: white;
+        background-color:#6566ec;
+        text-align: center;
+        border-radius: 10px;
+        
     }
     
     th:first-of-type {
