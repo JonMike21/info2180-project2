@@ -6,7 +6,7 @@ window.onload=function(){
     All.addEventListener('click', function(element){
         element.preventDefault();
         httpRequest = new XMLHttpRequest();
-        var url = "Dashboard.php";
+        var url = "Dashboard.php?q=All";
         httpRequest.onreadystatechange=load;
         httpRequest.open('GET',url);
         httpRequest.send();
@@ -17,6 +17,14 @@ window.onload=function(){
     // httpRequest.open('GET',url);
     // httpRequest.send();
    
+    Sales.addEventListener('click', function(element){
+        element.preventDefault();
+        httpRequest = new XMLHttpRequest();
+        var url = "Dashboard.php?q=Sales";
+        httpRequest.onreadystatechange=load;
+        httpRequest.open('GET',url);
+        httpRequest.send();
+    });
 
 
 

@@ -10,8 +10,16 @@ $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $p
 // $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // SELECT firstname, lastname, email, company, type FROM `contacts`;
 
-if ($_SERVER['REQUEST_METHOD'] === 'GET') :
+if ($_SERVER['REQUEST_METHOD'] === 'GET'):
+  $q = $_REQUEST['q'];
+  echo $q;
+
+  if ($q == "Sales"){
+    $stmt = $conn->query("SELECT * FROM contacts WHERE type = 'support'");
+  }else{
     $stmt = $conn->query("SELECT * FROM contacts");
+
+  }
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);?> 
     <table style="width:100%" CELLSPACING=0>
       <thead>
