@@ -2,6 +2,8 @@ window.onload=function(){
     var httpRequest;
     var All= document.querySelector("#All");
     var Sales= document.querySelector("#Sales");
+    var Support= document.querySelector("#Support");
+    var Assigned= document.querySelector("#Assigned");
     
     All.addEventListener('click', function(element){
         element.preventDefault();
@@ -16,7 +18,34 @@ window.onload=function(){
     // httpRequest.onreadystatechange=load;
     // httpRequest.open('GET',url);
     // httpRequest.send();
-   
+
+    
+    Sales.addEventListener('click', function(element){
+        element.preventDefault();
+        httpRequest = new XMLHttpRequest();
+        var url = "Dashboard.php";
+        httpRequest.onreadystatechange=load;
+        httpRequest.open('GET',url);
+        httpRequest.send();
+    });
+
+    Support.addEventListener('click', function(element){
+        element.preventDefault();
+        httpRequest = new XMLHttpRequest();
+        var url = "Dashboard.php";
+        httpRequest.onreadystatechange=load;
+        httpRequest.open('GET',url);
+        httpRequest.send();
+    });
+
+    Assigned.addEventListener('click', function(element){
+        element.preventDefault();
+        httpRequest = new XMLHttpRequest();
+        var url = "Dashboard.php";
+        httpRequest.onreadystatechange=load;
+        httpRequest.open('GET',url);
+        httpRequest.send();
+    });
 
 
 
