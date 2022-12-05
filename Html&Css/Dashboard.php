@@ -45,8 +45,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'):
           else if ($tdv['type'] == "Support"){
               echo '<td class="Sup">Support</td>';
           }
-        ?>
-        <td><button type="button">View</button></td>
+    
+    
+          $str = "note.php?p=" . $tdv['id'];
+        
+        
+          echo "<td><button type=button><a href=". $str .">View</a></button></td>";
+    ?>
+        
+        
       </tr>
       <?php endforeach; ?>
     </tbody>

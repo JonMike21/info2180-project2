@@ -1,4 +1,7 @@
 <?php
+
+require "config.php";
+
 define('DB_HOST','localhost');
 define('DB_USER','project2_user');
 define('DB_PASS','password123');
@@ -33,6 +36,25 @@ if(isset($_POST['submit']))
 		$successMsg = "Record has been saved successfully";
 	}
 }
+
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $q = $_REQUEST['q'];
+
+    $sql = "SELECT title, firstname, lastname FROM contacts WHERE id=$q";
+    $rs = mysqli_query($conn, $sql);
+	$affectedRows = mysqli_affected_rows($conn);
+
+
+    foreach ($results as $option) {
+        // echo '<option>' . $option['firstname'] . " " . $option['lastname'] . '</option>';
+    }
+
+    
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -81,7 +103,10 @@ if(isset($_POST['submit']))
         <div class= "notSidebar">
             <div id="head">
             <img src="./assets/blank avatar (2).jpg" alt="" id="avatar">
-            <h2>Mr. Michael Scott<span>Created on November 9 2022 by David Wallace</span><span>Updated on November 13,2022</span></h2> 
+            <h2 id="newName">Mr. Michael Scott
+                <span>Created on November 9 2022 by David Wallace</span>
+                <span>Updated on November 13,2022</span>
+            </h2> 
            
             <button id="Assign">&#128400; Assign to Me</button>
             <button id="SwitchSale">&#8644; Switch to Sales Lead</button>
