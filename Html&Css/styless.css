@@ -157,6 +157,34 @@ input[type=submit]{
     grid-template-rows: 2fr 1fr;
 }
 
+.container div.row{
+    display:grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 2em;
+    
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+    padding-top: 10px;
+    
+}
+
+.container div.row label{
+    
+} 
+
+.container div.row select{
+    width: 100%;
+    height: 2.5em;
+}
+
+.container div.row div.form-group input{
+    width: 100%;
+    height: 2em;
+}
+
+
+
 #loginboxsinfo span{
 display:flex;
 flex-flow: column wrap;
