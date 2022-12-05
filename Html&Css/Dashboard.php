@@ -35,7 +35,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'):
     <tbody>
       <?php foreach($results as $tdv): ?>
       <tr>
-        <td><?=$tdv['title']." ".$tdv['firstname']." ".$tdv['lastname'];?></td>
+        <?php 
+        $str = "note.php?p=" . $tdv['id'];
+        $name = $tdv['title']." ".$tdv['firstname']." ".$tdv['lastname'];
+        echo "<td><button class='dname' type=button><a href=". $str ."> $name </a></button></td>";
+        ?>
+        
         <td><?=$tdv['email'];?></td>
         <td><?=$tdv['company'];?></td>
 
@@ -49,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'):
 
           $str = "note.php?p=" . $tdv['id'];
 
-          echo "<td><button type=button><a href=". $str .">View</a></button></td>";
+          echo "<td><button class='view' type=button><a href=". $str .">View</a></button></td>";
         ?>
        
     
