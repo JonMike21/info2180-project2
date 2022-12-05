@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'):
             if ($tdv['type'] == "Sales Lead") {
             echo '<td class="SL">Sales Lead</td>';
             }
-            else{
+            else if ($tdv['type'] == "Support"){
                 echo '<td class="Sup">Support</td>';
             }
         ?>
