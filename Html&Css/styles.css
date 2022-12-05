@@ -15,8 +15,7 @@ body{
 
 
 .header{
-    background-color: rgb(48, 46, 63);
-    color: white;
+    background-color: rgb(31, 41, 55);    color: white;
     height:45px;
     margin: 0%;
 }
@@ -138,8 +137,8 @@ footer{
 }
 
 .loginHeader{
-    background-color: rgb(48, 46, 63);
-    color: white;
+    background-color: rgb(31, 41, 55);
+     color: white;
     margin: 0;
     padding: 1%;  
 }
