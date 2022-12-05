@@ -1,4 +1,6 @@
 <?php
+
+require "config.php";
 define('DB_HOST','localhost');
 define('DB_USER','project2_user');
 define('DB_PASS','password123');
