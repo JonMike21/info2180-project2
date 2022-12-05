@@ -22,6 +22,11 @@ saveBttn.on('click', function(element) {
     }).done(function(response) {
     var resp = response;
     $('#result').html(resp);
+
+    setTimeout(function() {             
+        location.replace("Dashboard.html");  
+    }, 2000);
+    
     }).fail(function() {
     alert('There was a problem with the request.');
     });
