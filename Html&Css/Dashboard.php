@@ -1,4 +1,5 @@
 <?php
+session_start();
 $host = 'localhost';
 $username = 'project2_user';
 $password = 'password123';
@@ -47,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'):
             if ($tdv['type'] == "Sales Lead") {
             echo '<td class="SL">Sales Lead</td>';
             }
-            else{
+            else if ($tdv['type'] == "Support"){
                 echo '<td class="Sup">Support</td>';
             }
         ?>
