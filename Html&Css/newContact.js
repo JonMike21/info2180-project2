@@ -31,7 +31,7 @@ $(document).ready(function() {
                     $('#result').html(resp);
                     
                     setTimeout(function() {             
-                        window.open("dashboard.html");  
+                        location.replace("Dashboard.html");  
                     }, 2000);
                     
                 

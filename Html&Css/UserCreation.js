@@ -24,7 +24,7 @@ saveBttn.on('click', function(element) {
     $('#result').html(resp);
 
     setTimeout(function() {             
-        window.open("dashboard.html");  
+        location.replace("Dashboard.html");  
     }, 2000);
     
     }).fail(function() {
