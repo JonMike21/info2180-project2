@@ -29,6 +29,11 @@ $(document).ready(function() {
                 }).done(function(response) {
                     var resp = response;
                     $('#result').html(resp);
+                    
+                    setTimeout(function() {             
+                        window.open("dashboard.html");  
+                    }, 2000);
+                    
                 
                 }).fail(function() {
                     alert('There was a problem with the request.');
