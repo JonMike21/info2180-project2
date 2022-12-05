@@ -1,4 +1,5 @@
 <?php
+require "config.php";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $host = 'localhost';
     $username = 'project2_user';

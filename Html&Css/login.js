@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     var loginBttn= $('#login');
-    $loginMsg = "Successfully Login...";
+    $login=true;
     $errorMsg = "Email or Password missing";
 
     loginBttn.on('click',function(element) {
@@ -21,7 +21,7 @@ $(document).ready(function() {
         }).done(function(data) {
             var resp = data;
             console.log(data);
-        if(resp == $loginMsg){
+        if(resp == $login){
             window.location.replace('Dashboard.html');
         }else{
             alert(resp);

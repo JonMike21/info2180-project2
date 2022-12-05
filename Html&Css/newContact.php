@@ -1,13 +1,5 @@
 <?php
-
-
-$host = 'localhost';
-$username = 'project2_user';
-$password = 'password123';
-$dbname = 'dolphin_crm';
-
-$conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
-
+require "config.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $stmt = $conn->query("SELECT id, firstname, lastname FROM users");
