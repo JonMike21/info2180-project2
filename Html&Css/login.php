@@ -1,48 +1,55 @@
 <?php
-// session_start();
-// include "config.php";
 
+require "config.php";
+$isUser=false;
+$errorMsg="";
 
-$host = 'localhost';
-$username = 'project2_user';
-$password = 'password123';
-$dbname = 'dolphin_crm';
+$stmt= $conn->query("SELECT * FROM users");
+$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-$conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $email = filter_input(INPUT_POST, 'loginEmail', FILTER_VALIDATE_EMAIL);
+    $pass = filter_input(INPUT_POST, 'loginPassword', FILTER_SANITIZE_STRING);
 
+    if($email === "" && $pass === ""){
+        $errorMsg="Please enter email and password";
+        echo($errorMsg);
+           
+    }
+    elseif($email === "" || $pass === ""){
+        $errorMsg = "Both Email and Paswword required.";
+        echo($errorMsg);
 
-if($_SERVER["REQUEST_METHOD"] == 'POST') {
-    #$email = $_POST['loginEmail'];
-    #$pass = $_POST['loginPassword'];
-    $stmt= $conn->query("SELECT * FROM users");
-    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    $email =  filter_input(INPUT_POST, 'loginEmail', FILTER_VALIDATE_EMAIL);
-    $loginPassword = filter_input(INPUT_POST, 'loginPassword', FILTER_SANITIZE_STRING);
-
-    ?>
-
-    <script>
-        console.log("yessir")
-    </script>
-    
-    <?php
-    echo $email;
-
-    foreach($results as $option){
-        $checkEmail = $option['email'];
-        $checkPassword = $option['password'];
-
-        if ($checkEmail === $email){
-            // $_SESSION["user_login"] = $option["id"];
-            // $loginMsg = "Successfully Login...";
-            // echo $option['email'];
-            // header("refresh:2; Dashboard.php");
-            echo "well done";
-            break;
+    }elseif(!empty($email) && !empty($pass)){
+        foreach($results as $tdv){
+            if($email == $tdv['email'] && $pass == $tdv['password']){
+                $_SESSION["user_id"] =$tdv['id']; 
+                $_SESSION["firstname"] =$tdv['firstname']; 
+                $_SESSION["lastname"] =$tdv['lastname']; 
+                $_SESSION["password"] =$tdv['password']; 
+                $_SESSION["email"] =$tdv['email']; 
+                $_SESSION["role"] =$tdv['role'];
+                $_SESSION["created_at"] =$tdv['created_at'];  
+                
+                $isUser=true;
+            }
         }
-        // $loginMsg = "Invalid Login...";
-        // echo $loginMsg;
+        if($isUser == true){
+            $_SESSION["user_id"] =$tdv['id']; 
+            $_SESSION["firstname"] =$tdv['firstname']; 
+            $_SESSION["lastname"] =$tdv['lastname']; 
+            $_SESSION["password"] =$tdv['password']; 
+            $_SESSION["email"] =$tdv['email']; 
+            $_SESSION["role"] =$tdv['role'];
+            $_SESSION["created_at"] =$tdv['created_at']; 
+            echo("Successfully Login...");
+        }else{
+            $errorMsg= "Invalid Credentials";
+            echo($errorMsg);
+        }
+    }else{
+        $errorMsg= "Invalid Credentials";
+        echo($errorMsg);
     }
 }
 ?>

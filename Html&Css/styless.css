@@ -19,6 +19,10 @@ body{
     
 }
 
+div.boxx h1{
+    padding-left: 80px;
+}
+
 .header h1{
     margin-left: 18px;
     font-size: 12px;
@@ -53,6 +57,16 @@ body{
     font-size: 32px;
     padding-top: 10px;
 }
+
+div.notsidebar div.top{
+    display: flex;
+    justify-content: space-between;
+    align-content: flex-end;
+    padding-top: 20px;
+    padding-right: 60px;
+    padding-left: 50px;
+}
+
 
 #head{
     margin: 2rem 4rem 0 5rem;
@@ -156,6 +170,43 @@ input[type=submit]{
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 2fr 1fr;
 }
+
+.container div.row{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2em;
+    
+    align-items: center;
+    justify-content: center;
+    margin-left: 15px;
+    padding-top: 10px;
+    
+}
+.container div.row div {
+    padding-top: 5px;
+    padding-bottom: 15px;
+}
+
+.container div.row select#assign{
+    width: 90%;
+    height: 2.5em;
+    padding-left: 5px;
+    
+}
+
+.container div.row select#type{
+    padding-left: 5px;
+    width: 97%;
+    height: 2.5em;
+}
+
+.container div.row div.form-group input{
+    width: 95%;
+    height: 2em;
+    padding-left: 5px;
+}
+
+
 
 #loginboxsinfo span{
 display:flex;
