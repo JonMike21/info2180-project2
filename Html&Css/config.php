@@ -19,7 +19,7 @@ $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $p
     #echo session_id();
 
 // Get any other session info
-    # $_SESSION[""] --E.g $_SESSION["id"] 
+    # $_SESSION[""] --E.g $_SESSION["user_id"] translates to user 'id'
 
 // remove all session variables
     #session_unset();

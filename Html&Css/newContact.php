@@ -45,10 +45,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo 'alert("That email is not valid!")';
         echo '</script>';
     
+        //check if telephone number is valid
     }elseif(!($telLength == 10)){
         echo '<script language="javascript">';
         echo 'alert("Incorrect Telephone number length!")';
         echo '</script>';
+    
+    //find the id of selected person
     }else{
         foreach($results as $option){
             $check = $option['firstname']." ".$option['lastname'];
@@ -60,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
         $current = date('Y-m-d H:i:s');
     
-        echo $current;
+        echo "Added Successfully!";
     
         $SQL="INSERT INTO `contacts` (title, firstname, lastname, email, telephone, company, type, created_by, assigned_to, created_at, updated_at) 
         VALUES ('$title', '$firstName', '$lastName', '$email', '$tel', '$company', '$type', '$identity', '$identity', '$current', '$current')";

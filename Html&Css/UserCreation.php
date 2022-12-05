@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $val=0;
   
     if (!isset($_POST['firstName']) || !isset($_POST['lastName']) || !isset($_POST['email']) || !isset($_POST['password']) || !isset($_POST['role'])){
-        echo 'Fields(s)fweff are empty. ';
+        echo 'Fields(s) are empty. ';
         $val=1;
     } 
     elseif(empty($firstName) || empty($lastName)  || /*empty($email)  ||*/ empty($loginPassword)  || empty($firstName)){
@@ -59,8 +59,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 //echo "<p>" . $SQL . "</p>";
             
                 $stmt = $conn->query($SQL);    
-                echo "User Added Sucessfully";
+                $added="User Added Sucessfully";
+                
                 echo("<meta http-equiv='refresh' content='1'>"); 
+                //header('Location: Dashboard.html');
             }
         }
 
@@ -69,6 +71,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 } 
 
-//echo "<h2>" . $firstName . "</h2>";
+
 
 ?> 
