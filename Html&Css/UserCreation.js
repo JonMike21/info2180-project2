@@ -1,5 +1,6 @@
 $(document).ready(function() {
 var saveBttn= $('#saveBttn');
+$added = "User Added Sucessfully";
 
 saveBttn.on('click', function(element) {
     element.preventDefault();
