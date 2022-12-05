@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'):
   }
 
 
+  
   $results = $stmt->fetchAll(PDO::FETCH_ASSOC);?> 
   <table style="width:100%" CELLSPACING=0>
     <thead>
@@ -45,8 +46,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'):
           else if ($tdv['type'] == "Support"){
               echo '<td class="Sup">Support</td>';
           }
+
+          $str = "note.php?p=" . $tdv['id'];
+
+          echo "<td><button type=button><a href=". $str .">View</a></button></td>";
         ?>
-        <td><button type="button">View</button></td>
+       
+    
       </tr>
       <?php endforeach; ?>
     </tbody>
