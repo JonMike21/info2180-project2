@@ -1,25 +1,34 @@
 $(document).ready(function() {
+
     var loginBttn= $('#login');
+    $loginMsg = "Successfully Login...";
+    $errorMsg = "Email or Password missing";
+
+    loginBttn.on('click',function(element) {
     
-    loginBttn.on('click', function(element) {
+
         element.preventDefault();
         var loginEmail = $('#loginEmail').val();
         var loginPassword = $('#loginPassword').val();
 
-    
-        $.ajax('UserCreation.php', {
-        method: 'POST',
+        $.ajax('login.php',{
+        method:'POST',
         data: {
             loginEmail: loginEmail,
-            loginPassword: loginPassword,
-
+            loginPassword: loginPassword
         }
-        }).done(function(response) {
-        var resp = response;
-        $('#result').html(resp);
+
+        }).done(function(data) {
+            var resp = data;
+            console.log(data);
+        if(resp == $loginMsg){
+            window.location.replace('Dashboard.html');
+        }else{
+            alert(resp);
+        }
         }).fail(function() {
-        alert('There was a problem with the request.');
+            alert('There was a problem with the request.');
         });
-    
+        
     })
-    });
+});

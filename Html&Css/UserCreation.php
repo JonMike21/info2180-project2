@@ -21,35 +21,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     //if password_verify($loginPassword.$hash){}   //can use this for verification
 
-    if (!isset($_POST['firstName']) || !isset($_POST['lastName']) || !isset($_POST['email']) || !isset($_POST['password']) || !isset($_POST['role'])){
-        echo 'Fields(s) are empty';
-    } 
-   elseif(empty($firstName) || empty($lastName)  || empty($email)  || empty($loginPassword)  || empty($firstName)){
-        echo 'Fields(s) are empty';
-   }
+  
 
     // Validate password strength
     $uppercase = preg_match('@[A-Z]@', $loginPassword);
     $lowercase = preg_match('@[a-z]@', $loginPassword);
     $number    = preg_match('@[0-9]@', $loginPassword);
     $specialChars = preg_match('@[^\w]@', $loginPassword);
+    $val=0;
   
-    // Check if email is valid
-    if (!$email) {
-        echo 'That email is not valid!<br/>';
+    if (!isset($_POST['firstName']) || !isset($_POST['lastName']) || !isset($_POST['email']) || !isset($_POST['password']) || !isset($_POST['role'])){
+        echo 'Fields(s)fweff are empty. ';
+        $val=1;
+    } 
+    elseif(empty($firstName) || empty($lastName)  || /*empty($email)  ||*/ empty($loginPassword)  || empty($firstName)){
+        echo 'Fields(s) are empty. ';
+        $val=1;
     }
     
-    if (!$uppercase || !$lowercase || !$number || !$specialChars || strlen($loginPassword) < 8) {
-        echo 'Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.';
-    }
-    else{
-        //Adds user to database
-        $SQL="INSERT INTO `users` (firstname, lastname, password, email, role) 
-        VALUES ('$firstName', '$lastName', '$hash', '$email', '$role')";
-    
-        //echo "<p>" . $SQL . "</p>";
-    
-        $stmt = $conn->query($SQL);    
+    if ($val==0){
+        // Check if email is valid
+        if (!$email ) {
+            echo 'That email is not valid!<br/>';
+            $val=2;
+        }
+
+
+        if (!$uppercase || !$lowercase || !$number || !$specialChars || strlen($loginPassword) < 8) {
+            echo 'Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.';
+        }
+        else{
+            if ($val==0){
+                //Adds user to database
+                $SQL="INSERT INTO `users` (firstname, lastname, password, email, role) 
+                VALUES ('$firstName', '$lastName', '$hash', '$email', '$role')";
+            
+                //echo "<p>" . $SQL . "</p>";
+            
+                $stmt = $conn->query($SQL);    
+                echo "User Added Sucessfully";
+                echo("<meta http-equiv='refresh' content='1'>"); 
+            }
+        }
+
+
     }
 
 } 
