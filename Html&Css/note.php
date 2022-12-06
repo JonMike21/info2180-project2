@@ -13,21 +13,30 @@ $sql= 'SELECT * FROM notes';
 $result = mysqli_query($conn, $sql);
 $feedback = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-//$sqql='SELECT contacts.firstname,contacts.lastname,notes.comment,contacts.id,notes.contact_id FROM contacts JOIN notes ON contacts.id=notes.contact_id';
-$sqql='SELECT contacts.firstname,contacts.lastname,notes.comment,contacts.id,notes.contact_id,contacts.email,contacts.telephone,contacts.company,contacts.created_at,contacts.updated_at,contacts.assigned_to FROM contacts JOIN notes ON contacts.id=notes.contact_id';
+
+$sqql=  'SELECT contacts.firstname, contacts.lastname, notes.comment, contacts.id, notes.contact_id, contacts.email, contacts.telephone,
+        contacts.company, contacts.created_at, contacts.updated_at, contacts.assigned_to FROM contacts JOIN notes ON contacts.id = notes.contact_id';
 $result = mysqli_query($conn, $sqql);
 $notes = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-$sqqll='SELECT contacts.firstname,contacts.lastname,contacts.id,users.id,contacts.email,contacts.telephone,contacts.company,contacts.created_at,contacts.updated_at,contacts.assigned_to FROM contacts JOIN users ON contacts.id=users.id';
+
+$sqqll= 'SELECT contacts.firstname, contacts.lastname, contacts.id, users.id, contacts.email, contacts.telephone, contacts.company, contacts.created_at,
+        contacts.updated_at, contacts.assigned_to FROM contacts JOIN users ON contacts.id=users.id';
 $result = mysqli_query($conn, $sqqll);
 $adm = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
+// if ($abm == )
 
 if($_SERVER['REQUEST_METHOD']==='POST'){
-    $textarea = filter_input(INPUT_POST, 'textarea', FILTER_SANITIZE_STRING);
+    $textarea = filter_input(INPUT_POST, 'textarea', FILTER_SANITIZE_SPECIAL_CHARS);
     echo $textarea;
 }
-foreach($adm as $item) if($item['id']==$contid) $us=$item;
+
+$us = 0;
+foreach($adm as $item) 
+    if($item['id'] == $contid)
+        $us=$item;
+        
 //foreach($adm as $item) if($item['id']==$us['assigned_to']) $name=$item;
 
 
@@ -35,7 +44,7 @@ if(isset($_POST['submit']))
 {
 	$textareaValue = trim($_POST['content']);
 	//$sql = "insert into notes (contact_id,comment,created_by) values ('".$UID.",".$textareaValue.",".$UID."')";
-    $sql="INSERT INTO `notes` (contact_id,comment,created_by) VALUES ('$UID', '$textareaValue', '$UID')";
+    $sql="INSERT INTO `notes` (contact_id,comment,created_by) VALUES ('$contid', '$textareaValue', 2)";
 	$rs = mysqli_query($conn, $sql);
 	$affectedRows = mysqli_affected_rows($conn);
 	
@@ -88,7 +97,10 @@ if(isset($_POST['submit']))
         <div class= "notSidebar">
             <div id="head">
             <img src="./assets/blank avatar (2).jpg" alt="" id="avatar">
-            <h2><?php echo $us['firstname'].' ' .$us['lastname'];?><span>Created On <?php echo $us['created_at']?></span><span>Updated On <?php echo $us['updated_at']?></span></h2> 
+            <h2><?php echo $us['firstname'].' ' .$us['lastname'];?>
+                <span>Created On <?php echo $us['created_at']?></span>
+                <span>Updated On <?php echo $us['updated_at']?></span>
+            </h2> 
            
             <button id="Assign">&#128400; Assign to Me</button>
             <button id="SwitchSale">&#8644; Switch to Sales Lead</button>
@@ -127,29 +139,29 @@ if(isset($_POST['submit']))
                     
                         <div class="container">
                             <div id="Notes">
-                            <i class="fas fa-edit"></i>
-                            <span id="Notes">Notes</span>
-                             </div>
-                             <div class="line">
+                                <i class="fas fa-edit"></i>
+                                <span id="Notes">Notes</span>
+                            </div>
+                            <div class="line">
                                 <hr>
                                 <?php foreach($notes as $item): ?>
-                              </div>
-                             <div id="notes">
-                              <h3><?php echo $item['firstname'].' ' .$item['lastname']; ?></h3>
-                              <p><?php echo $item['comment'];?></p>
-                              <?php endforeach; ?>
+                            </div>
+                            <div id="notes">
+                                <h3><?php echo $item['firstname'].' ' .$item['lastname']; ?></h3>
+                                <p><?php echo $item['comment'];?></p>
+                                <?php endforeach; ?>
                                 <div id="note">
-                                <h3>Add a Note About <?php?></h3>
-                                <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
-                                <div>
-                                <textarea name="content"></textarea>
-                                    </div>
-                                <input type="submit"name="submit" value="Add Note">
+                                    <h3>Add a Note About</h3>
+                                    <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
+                                        <div>
+                                            <textarea name="content"></textarea>
+                                        </div>
+                                        <input type="submit"name="submit" value="Add Note">
                                     </form>
-                               
-                                <!--<textarea id="textarea" name="comment" placeholder="Enter details here"></textarea>-->
                                     
-                                <!--<button id="addNote">Add Note</button>-->
+                                    <!--<textarea id="textarea" name="comment" placeholder="Enter details here"></textarea>-->
+                                        
+                                    <!--<button id="addNote">Add Note</button>-->
                                 
                                 </div>
                             </div>

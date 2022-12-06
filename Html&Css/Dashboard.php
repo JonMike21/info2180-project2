@@ -21,7 +21,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'):
 
 
   
-  $results = $stmt->fetchAll(PDO::FETCH_ASSOC);?> 
+  $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  ?> 
+
+
+
   <table style="width:100%" CELLSPACING=0>
     <thead>
       <tr>
