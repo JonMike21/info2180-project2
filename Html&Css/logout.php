@@ -11,6 +11,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     if($logout === $request){
         $logout=false;
+        //echo("Hi im bob");
         echo($logout);
            
     }else{

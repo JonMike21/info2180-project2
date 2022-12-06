@@ -6,8 +6,9 @@ $(document).ready(function() {
 
 
     logoutBttn.on('click',function(element) {
-    
+        alert("yessah");
         element.preventDefault();
+        
         var logout = $logout;
 
         $.ajax('logout.php',{
@@ -24,11 +25,12 @@ $(document).ready(function() {
             window.location.replace('login.html');
         }else{
             $errorMsg="Error"
-            alert($errorMsg);
+            alert(resp);
         }
         }).fail(function() {
             alert('There was a problem with the request.');
         });
+        return false;
         
     })
 });
