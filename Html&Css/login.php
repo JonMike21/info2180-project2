@@ -42,7 +42,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $_SESSION["email"] =$tdv['email']; 
             $_SESSION["role"] =$tdv['role'];
             $_SESSION["created_at"] =$tdv['created_at']; 
-            echo("Successfully Login...");
+            echo($isUser);
         }else{
             $errorMsg= "Invalid Credentials";
             echo($errorMsg);

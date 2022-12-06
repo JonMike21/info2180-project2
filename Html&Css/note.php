@@ -1,7 +1,5 @@
 <?php
-
-require "config.php";
-
+include "config.php";
 define('DB_HOST','localhost');
 define('DB_USER','project2_user');
 define('DB_PASS','password123');
@@ -9,52 +7,39 @@ define('DB_NAME','dolphin_crm');
 
 $conn = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 
-
+$contid = $_REQUEST['p'];
+$UID = $_SESSION['user_id'];
 $sql= 'SELECT * FROM notes';
 $result = mysqli_query($conn, $sql);
 $feedback = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-$sqql='SELECT contacts.firstname,contacts.lastname,notes.comment,contacts.id,notes.contact_id FROM contacts JOIN notes ON contacts.id=notes.contact_id';
+//$sqql='SELECT contacts.firstname,contacts.lastname,notes.comment,contacts.id,notes.contact_id FROM contacts JOIN notes ON contacts.id=notes.contact_id';
+$sqql='SELECT contacts.firstname,contacts.lastname,notes.comment,contacts.id,notes.contact_id,contacts.email,contacts.telephone,contacts.company,contacts.created_at,contacts.updated_at,contacts.assigned_to FROM contacts JOIN notes ON contacts.id=notes.contact_id';
 $result = mysqli_query($conn, $sqql);
 $notes = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+$sqqll='SELECT contacts.firstname,contacts.lastname,contacts.id,users.id,contacts.email,contacts.telephone,contacts.company,contacts.created_at,contacts.updated_at,contacts.assigned_to FROM contacts JOIN users ON contacts.id=users.id';
+$result = mysqli_query($conn, $sqqll);
+$adm = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
 
 if($_SERVER['REQUEST_METHOD']==='POST'){
     $textarea = filter_input(INPUT_POST, 'textarea', FILTER_SANITIZE_STRING);
     echo $textarea;
 }
+foreach($adm as $item) if($item['id']==$contid) $us=$item;
+//foreach($adm as $item) if($item['id']==$us['assigned_to']) $name=$item;
+
 
 if(isset($_POST['submit']))
 {
 	$textareaValue = trim($_POST['content']);
-	
-	$sql = "insert into notes (comment) values ('".$textareaValue."')";
+	//$sql = "insert into notes (contact_id,comment,created_by) values ('".$UID.",".$textareaValue.",".$UID."')";
+    $sql="INSERT INTO `notes` (contact_id,comment,created_by) VALUES ('$UID', '$textareaValue', '$UID')";
 	$rs = mysqli_query($conn, $sql);
 	$affectedRows = mysqli_affected_rows($conn);
 	
-	if($affectedRows == 1)
-	{
-		$successMsg = "Record has been saved successfully";
-	}
 }
-
-
-
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    $q = $_REQUEST['q'];
-
-    $sql = "SELECT title, firstname, lastname FROM contacts WHERE id=$q";
-    $rs = mysqli_query($conn, $sql);
-	$affectedRows = mysqli_affected_rows($conn);
-
-
-    foreach ($results as $option) {
-        // echo '<option>' . $option['firstname'] . " " . $option['lastname'] . '</option>';
-    }
-
-    
-}
-
-
 ?>
 
 <!DOCTYPE html>
@@ -103,10 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         <div class= "notSidebar">
             <div id="head">
             <img src="./assets/blank avatar (2).jpg" alt="" id="avatar">
-            <h2 id="newName">Mr. Michael Scott
-                <span>Created on November 9 2022 by David Wallace</span>
-                <span>Updated on November 13,2022</span>
-            </h2> 
+            <h2><?php echo $us['firstname'].' ' .$us['lastname'];?><span>Created On <?php echo $us['created_at']?></span><span>Updated On <?php echo $us['updated_at']?></span></h2> 
            
             <button id="Assign">&#128400; Assign to Me</button>
             <button id="SwitchSale">&#8644; Switch to Sales Lead</button>
@@ -118,18 +100,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                     <div class="container">
                     <!--You can add code inside this div--> 
                         <div id="loginboxsinfo">
-                            <label for="email">Email<span>michaelscott@paper.co</span></label>
+                            <label for="email">Email<span><?php echo $us['email']?></span></label>
                            <!-- <input id="email" type="search" name="email" placeholder="Something@example.com" />--> 
 
-                            <label for="telephone">Telephone<span>876-999-9999</span></label>
+                            <label for="telephone">Telephone<span><?php echo $us['telephone']?></span></label>
                             
                             <!--<input id="telephone" type="search" name="telephone" placeholder="876" />--> 
 
-                            <label for="company">Company<span>The Paper Company</span></label>
+                            <label for="company">Company<span><?php echo $us['company']?></span></label>
                             
                             <!--<input id="company" type="search" name="company" placeholder="Dolphin" />--> 
                         
-                            <label for="assigned to">Assigned to<span>Jen Leninson</span></label>
+                            <label for="assigned to">Assigned to<span><?php echo $us['firstname'].' ' .$us['lastname']?></span></label>
                             
                            <!-- <input id="assigned to" type="search" name="assigned to" placeholder="Jen Levinson" />--> 
                            
@@ -157,20 +139,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                               <p><?php echo $item['comment'];?></p>
                               <?php endforeach; ?>
                                 <div id="note">
-                                <h3>Add a Note About Michael</h3>
+                                <h3>Add a Note About <?php?></h3>
                                 <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
                                 <div>
                                 <textarea name="content"></textarea>
                                     </div>
                                 <input type="submit"name="submit" value="Add Note">
                                     </form>
-                                    <?php    
-                                    if(isset($successMsg))
-                                    {
-                                        if(isset($successMsg)) 
-                                        print_r($successMsg);
-                                        echo "</div>";
-                                    }?>
+                               
                                 <!--<textarea id="textarea" name="comment" placeholder="Enter details here"></textarea>-->
                                     
                                 <!--<button id="addNote">Add Note</button>-->

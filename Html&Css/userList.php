@@ -1,5 +1,5 @@
 <?php
-include "config.php";
+require "config.php";
 
 // $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // SELECT firstname, lastname, email, company, type FROM `contacts`;

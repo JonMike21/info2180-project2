@@ -12,6 +12,9 @@ $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $p
     #admin@project.com
     #pass1234
 
+    #tester@project.com
+    #pass1235
+
 // Start Session (should be on all php files)
     #session_start();
 

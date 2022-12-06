@@ -5,6 +5,7 @@ window.onload=function(){
     var Support= document.querySelector("#Support");
     var Assigned= document.querySelector("#Assigned");
 
+
     httpRequest = new XMLHttpRequest();
     var url = "Dashboard.php?q=All";
     httpRequest.onreadystatechange=load;
@@ -48,6 +49,8 @@ window.onload=function(){
         httpRequest.open('GET',url);
         httpRequest.send();
     });
+
+   
 
 
 

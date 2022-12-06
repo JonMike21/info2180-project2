@@ -64,4 +64,4 @@ INSERT INTO `contacts` VALUES
 INSERT INTO `notes` VALUES
 (NULL,1,'Johnny made this note',1,CURRENT_TIMESTAMP),
 (NULL,2,'Jack made this noe',2,CURRENT_TIMESTAMP),
-(NULL,1,'Support is a bad role',1,CURRENT_TIMESTAMP);
+(NULL,1,'Support is a bad role',3,CURRENT_TIMESTAMP);
