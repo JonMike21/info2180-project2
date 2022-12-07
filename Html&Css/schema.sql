@@ -7,7 +7,7 @@ CREATE TABLE `users` (
     `id` INTEGER AUTO_INCREMENT, 
     `firstname` VARCHAR(45) NOT NULL,
     `lastname` VARCHAR(45) NOT NULL,
-    `password` VARCHAR(45) NOT NULL,
+    `password` VARCHAR(60) NOT NULL,
     `email` VARCHAR(45) NOT NULL,
     `role` VARCHAR(45) NOT NULL, 
     `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -39,7 +39,7 @@ DROP TABLE IF EXISTS `notes`;
 CREATE TABLE `notes` (
     `id` INTEGER AUTO_INCREMENT,
     `contact_id` INTEGER NOT NULL,
-    `comment` TEXT(45) NOT NULL,
+    `comment` LONGTEXT NOT NULL, 
     `created_by` INTEGER NOT NULL,
     `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(`id`) 

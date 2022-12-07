@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $role= filter_input(INPUT_POST, 'role', FILTER_SANITIZE_STRING);
 
     //Encrypts password
-    $hash = password_hash($loginPassword, PASSWORD_BCRYPT);
+    $hash = password_hash($loginPassword, PASSWORD_DEFAULT);
     
     
     //if password_verify($loginPassword.$hash){}   //can use this for verification

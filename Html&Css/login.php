@@ -22,7 +22,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     }elseif(!empty($email) && !empty($pass)){
         foreach($results as $tdv){
-            if($email == $tdv['email'] && $pass == $tdv['password']){
+            //if($email == $tdv['email'] && $pass == $tdv['password']){
+            if($email == $tdv['email'] && password_verify($pass,$tdv['password'])){
                 $_SESSION["user_id"] =$tdv['id']; 
                 $_SESSION["firstname"] =$tdv['firstname']; 
                 $_SESSION["lastname"] =$tdv['lastname']; 
@@ -52,4 +53,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         echo($errorMsg);
     }
 }
+
 ?>
+
