@@ -9,7 +9,6 @@ $conn = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 
 $contid = $_REQUEST['p'];
 $UID = $_SESSION["user_id"];
-
 $sql= 'SELECT * FROM notes';
 $result = mysqli_query($conn, $sql);
 $feedback = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -42,21 +41,19 @@ if(isset($_POST['submit']))
     $sql="INSERT INTO `notes` (contact_id,comment,created_by) VALUES ('$contid', '$textareaValue', '$UID')";
 	$rs = mysqli_query($conn, $sql);
 	$affectedRows = mysqli_affected_rows($conn);
-	
+	header("Refresh:0");
 }
 if(isset($_POST['Assign']))
 {
-    $sql="UPDATE TABLE `contacts` SET assigned_to=$UID WHERE $contid=contacts.id";
-	$rs = mysqli_query($conn, $sql);
-	$affectedRows = mysqli_affected_rows($conn);
-	
+    $sql="UPDATE contacts SET assigned_to=$UID WHERE '$contid'=contacts.id";
+	$yes = mysqli_query($conn, $sql);
+	header("Refresh:0");
 }
 if(isset($_POST['SwitchSale']))
 {
-    $sql="INSERT INTO `notes` (contact_id,comment,created_by) VALUES ('$contid', '$textareaValue', '$UID')";
-	$rs = mysqli_query($conn, $sql);
-	$affectedRows = mysqli_affected_rows($conn);
-	
+    $sql="UPDATE contacts SET `type`='Sales Lead' WHERE ($contid=contacts.id)";
+	$no = mysqli_query($conn, $sql);
+    header("Refresh:0");
 }
 ?>
 
@@ -109,10 +106,12 @@ if(isset($_POST['SwitchSale']))
             <div id="head">
             <img src="./assets/blank avatar (2).jpg" alt="" id="avatar">
             <h2><?php echo $us['firstname'].' ' .$us['lastname'];?><span>Created On <?php echo $us['created_at']?></span><span>Updated On <?php echo $us['updated_at']?></span></h2> 
-           
-            <button id="Assign" type="Assign">&#128400; Assign to Me</button>
-            <button id="SwitchSale" type="SwitchSale">&#8644; Switch to Sales Lead</button>
-       
+            <form method="post">
+            <button id="Assign" type="submit" name="Assign">&#128400; Assign to Me</button>
+            </form>
+            <form method="post">
+            <button id="SwitchSale" type="submit" name="SwitchSale">&#8644; Switch to Sales Lead</button>
+            </form>
         </div>
      
                 <div class="boxx">
