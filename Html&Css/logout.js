@@ -22,7 +22,7 @@ $(document).ready(function() {
         if(resp == $logout){
             alert("it wok");
             //session_unset();
-            //session_destroy();
+            session_destroy();
             window.location.replace('UserLogin.html');
         }else{
             $errorMsg="Error"
