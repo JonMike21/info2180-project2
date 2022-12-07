@@ -20,7 +20,7 @@ $(document).ready(function() {
             var resp = data;
             
         if(resp == $logout){
-            alert("it wok");
+            alert("Logging Out");
             //session_unset();
             session_destroy();
             window.location.replace('UserLogin.html');

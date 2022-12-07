@@ -14,6 +14,8 @@ $(document).ready(function() {
         var company = $('#company').val();
         var type = $('#type').val();
         var assigned = $('#assign').val();
+        
+        $added = "Added Successfully!";
     
         if (title && (firstName || firstName === " ") && (lastName || lastName === " ") && (email || email === " ") && telephone && (company || company === " ") && type && assigned){
             $.ajax('newContact.php', {
@@ -33,9 +35,12 @@ $(document).ready(function() {
                     var resp = response;
                     $('#result').html(resp);
                     
+                    if(resp==$added){  
+                        //alert("hello?");
                     setTimeout(function() {             
                         location.replace("Dashboard.html");  
                     }, 2000);
+                    } 
                     
                 
                 }).fail(function() {

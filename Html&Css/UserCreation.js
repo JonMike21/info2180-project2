@@ -24,7 +24,7 @@ saveBttn.on('click', function(element) {
     $('#result').html(resp);
 
     if(resp==$added){  
-        alert("hello?");
+        //alert("hello?");
     setTimeout(function() {             
         location.replace("Dashboard.html");  
     }, 2000);
